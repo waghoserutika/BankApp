@@ -15,6 +15,7 @@ import com.springboot.bankapp.model.Role;
 import com.springboot.bankapp.model.UserInfo;
 import com.springboot.bankapp.repository.CustomerRepository;
 import com.springboot.bankapp.repository.RoleRepository;
+import com.springboot.bankapp.repository.UserRepository;
 
 @Service
 public class CustomerService {
@@ -26,7 +27,10 @@ public class CustomerService {
 	private PasswordEncoder passwordEncoder;
 	
 	@Autowired
-	private RoleRepository roleRepository;
+	private RoleRepository roleRepository; 
+	
+	@Autowired
+	private UserRepository userRepository; 
 	
 	public Customer postCustomer(Customer customer) {
 		 //generate 10 digit account number
@@ -65,7 +69,11 @@ public class CustomerService {
 		 
 		return customerRepository.getById(id);
 	}
-	
+
+	public UserInfo getUserByName(String name) {
+		
+		return userRepository.findByUsername(name);
+	}
 	
 	
 }

@@ -35,5 +35,5 @@ public class MyUserDetailsService implements UserDetailsService {
 				//Spring also has 1 user 
 			    return new User(myUser.getUsername(), myUser.getPassword(), authorities);
 	}
-
+ 
 }
